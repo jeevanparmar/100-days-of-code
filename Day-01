@@ -1,0 +1,57 @@
+# 💯 100 Days of Code Challenge
+
+Welcome to my **100 Days of Code** journey! I'm committed to coding every day, improving my skills in Data Structures, Algorithms, and Full Stack Development.
+
+---
+
+## 📅 Day 1: May 21, 2025
+
+### ✅ Problem Solved:
+**LeetCode Problem 26 - Remove Duplicates from Sorted Array**
+
+🔗 [Problem Link](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+
+---
+
+### 🧠 Problem Description:
+Given a sorted array `nums`, remove the duplicates **in-place** such that each unique element appears only once. The relative order of the elements should be kept the same. Return the number of unique elements.
+
+You must do this using **O(1) extra memory**.
+
+---
+
+### 💻 My Code (C++):
+```cpp
+class Solution {
+public:
+    int removeDuplicates(std::vector<int>& nums) {
+        int s = nums.size();
+        if (s == 0) {
+            return s;
+        }
+        int n = 0;
+        for (int i = 1; i < s; i++) {
+            if (nums[i] != nums[n]) {
+                n++;
+                nums[n] = nums[i];
+            }
+        }
+        return n + 1;
+    }
+};
+
+📌 Approach:
+Used two-pointer technique to iterate and overwrite duplicates.
+Maintained one pointer n for last unique index and another i to scan the array.
+Modified the array in-place and returned the count of unique elements.
+
+🔍 What I Learned Today:
+Practiced working with in-place array modification.
+Refreshed the two-pointer method.
+Improved understanding of pointer logic and boundary conditions.
+Gained confidence working with LeetCode problems and C++ vectors.
+
+🧭 Reflection:
+This is my first day of the 100 Days of Code challenge!
+I'm excited to build the habit of consistent coding and problem solving.
+Looking forward to more growth every day! 🚀
