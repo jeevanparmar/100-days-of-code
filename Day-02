@@ -1,0 +1,45 @@
+# 100 Days of Code – Day 2
+
+## ✅ Problem Solved: [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
+
+### 📝 Description:
+Given an integer array `nums`, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+
+### 🧠 Approach:
+
+1. **Brute Force (Initial Attempt):**
+   - Tried all possible subarrays and calculated their sums.
+   - Faced **Time Limit Exceeded (TLE)** on larger inputs due to `O(n^2)` complexity.
+
+2. **Optimized Approach: Kadane’s Algorithm**
+   - Learned and implemented **Kadane’s Algorithm**, which runs in `O(n)` time.
+   - It keeps track of the current subarray sum and the maximum sum found so far.
+   - Resets the current sum to zero whenever it becomes negative.
+
+### 💻 Code (C++):
+
+```cpp
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        long int l = nums[0];
+        int c = 0;
+
+        for (int i = 0; i < nums.size(); i++) {
+            c += nums[i];
+            l = c > l ? c : l;
+            if (c < 0) {
+                c = 0;
+            }
+        }
+        return l;
+    }
+};
+
+✅ Output:
+Returns the maximum sum of a contiguous subarray.
+
+📚 What I Learned:
+Time complexity matters a lot in coding challenges.
+How to optimize from brute-force to an efficient linear-time algorithm.
+Understood the real-world use case of Kadane’s Algorithm.
