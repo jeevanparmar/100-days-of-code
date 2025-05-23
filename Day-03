@@ -28,3 +28,38 @@ public:
         return false;
     }
 };
+
+✅ Problem 2: 121. Best Time to Buy and Sell Stock
+Difficulty: Easy
+Language: C++
+
+🔍 Problem Statement
+Find the maximum profit from a single buy and sell operation in a stock price array. You must buy before you sell.
+
+💡 Approach (Sliding Window Technique)
+Track the minimum price (buy) so far.
+For each day, calculate profit: current_price - buy.
+Update maximum profit accordingly.
+
+🧾 Code Snippet
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int maxp = 0;
+        int buy = prices[0];
+        for(int i = 1; i < prices.size(); i++) {
+            if(buy < prices[i]) {
+                maxp = max(maxp, prices[i] - buy);
+            }
+            buy = min(buy, prices[i]);
+        }
+        return maxp;
+    }
+};
+
+📈 What I Learned
+Efficient array iteration techniques.
+Sorting as a tool to simplify duplicate detection.
+Sliding window to optimize profit problems in O(n) time.
+
