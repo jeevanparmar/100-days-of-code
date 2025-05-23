@@ -1,4 +1,4 @@
-# 💯 Jeevan Parmar's 100 Days of Code Challenge
+# 💯 100 Days of Code Challenge
 
 Welcome to my journey of **100 Days of Code!**  
 I'm committed to coding every single day — solving problems, building projects, and becoming a better developer.
@@ -11,20 +11,38 @@ I'm committed to coding every single day — solving problems, building projects
 - **Goal:** Practice DSA, LeetCode problems, and Full Stack Development
 - **Languages/Tools:** C++, JavaScript, Python, MERN stack
 
+---
 
 ## 🔥 Why I'm Doing This
 
-- Build consistency and discipline in coding
-- Improve problem-solving and technical thinking
-- Prepare for technical interviews and internships
-- Build real-world projects with confidence
+- Build consistency and discipline in coding  
+- Improve problem-solving and technical thinking  
+- Prepare for technical interviews and internships  
+- Build real-world projects with confidence  
 
 ---
 
-## 🧠 How I’ll Track Progress
+## 🧠 What I’m Learning
 
-Each day will have its own folder:
+- Data Structures & Algorithms  
+- Problem-solving on LeetCode  
+- Web Development (MERN Stack)  
+- Version control using Git & GitHub  
 
+---
+
+## 📅 How I’ll Track My Progress
+
+- Each day will have its own folder with:
+  - ✅ Solved LeetCode problems
+  - 🛠️ Practice projects or exercises
+  - 📓 Notes and learnings
+
+- 📢 **Daily updates posted on Twitter!**  
+  Follow my journey using the hashtag [#100DaysOfCode]  
+  👉 [Follow me on Twitter](https://x.com/JeevanParmar091) 
+
+---
 
 ## 🙌 Let's Connect
 
