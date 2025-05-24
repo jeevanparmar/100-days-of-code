@@ -1,44 +1,89 @@
-# Day 04 – 100 Days of Code Challenge
+# 🚀 Day 04 – #100DaysOfCode Challenge
 
-## 📅 Date: May 24, 2025
-
-## 👨‍💻 Problems Solved:
-
-### 1. Smallest Index With Digit Sum Equal to Index
-- **Platform:** LeetCode
-- **Problem ID:** 3550
-- **Description:** Find the smallest index `i` in an array such that the digit sum of `nums[i]` equals `i`.
-- **Approach:** Loop through the array, calculate digit sum using modulo and division, compare it with the index.
-- **Status:** ✅ All test cases passed
-- **Language:** C++
-
-### 2. Find Words Containing a Character
-- **Platform:** LeetCode
-- **Problem ID:** 2942
-- **Description:** Given an array of strings and a character, return all indices of strings that contain that character.
-- **Approach:** Nested loop to check each character in each string; if found, index is added to the result.
-- **Status:** ✅ All test cases passed
-- **Language:** C++
-
-### 3. Remove One Element to Make the Array Strictly Increasing
-- **Platform:** LeetCode
-- **Problem ID:** 1909
-- **Description:** Determine if it's possible to make the array strictly increasing by removing at most one element.
-- **Approach:** Traverse array and count violations of strictly increasing order. If violations > 1, return false.
-- **Status:** ✅ All test cases passed
-- **Language:** C++
-
-## 📈 Learning:
-- Strengthened understanding of digit manipulation in arrays.
-- Practiced character search inside strings.
-- Worked on edge case handling in arrays.
-
-## 🔧 Tools Used:
-- Language: C++
-- IDE: LeetCode Online Editor
-
-## 🔁 Next Steps:
-- Continue solving one or more LeetCode problems daily.
-- Try to implement solutions in both C++ and Python going forward.
+> 📆 Date: **May 24, 2025**  
+> 🔥 Focus: Problem Solving with C++
 
 ---
+
+## ✅ LeetCode Problems Solved
+
+### 🧮 1. Smallest Index With Digit Sum Equal to Index
+- **🔗 Problem Link:** [LeetCode 3550](https://leetcode.com/problems/smallest-index-with-equal-digit-sum/)
+- **📝 Description:** Find the smallest index `i` such that the digit sum of `nums[i]` equals `i`.
+- **💡 Approach:**
+  ```cpp
+  int smallestEqual(vector<int>& nums) {
+      for(int i = 0; i < nums.size(); i++) {
+          int sum = 0, x = i;
+          while(x) { sum += x % 10; x /= 10; }
+          if(sum == nums[i]) return i;
+      }
+      return -1;
+  }
+
+
+### 🔍 2. Find Words Containing a Character
+- **🔗 Problem Link:** [LeetCode 2942](https://leetcode.com/problems/find-words-containing-character/)
+- **📝 Description:** Return indices of strings from an array that contain a given character.
+- **💡 Approach:**
+  ```cpp
+  vector<int> findWordsContaining(vector<string>& words, char x) {
+      vector<int> ans;
+      for(int i = 0; i < words.size(); i++) {
+          for(char c : words[i]) {
+              if(c == x) {
+                  ans.push_back(i);
+                  break;
+              }
+          }
+      }
+      return ans;
+  }
+
+
+### 🧩 3. Remove One Element to Make Array Strictly Increasing
+- **🔗 Problem Link:** [LeetCode 1909](https://leetcode.com/problems/remove-one-element-to-make-array-strictly-increasing/)
+- **📝 Description:** Determine if the array can be made strictly increasing by removing one element.
+- **💡 Approach:**
+  ```cpp
+class Solution {
+public:
+    bool canBeIncreasing(vector<int>& nums) {
+
+        int first = nums[0], ans = 0, second = 0;
+        for (int i = 1; i < nums.size(); i++) {
+            if (first < nums[i]) {
+                second = first;
+                first = nums[i];
+            } else if (first == nums[i] || second < nums[i]) {
+                first = nums[i];
+                ans++;
+            } else ans++;
+        }
+        return ans <= 1;
+    }
+};
+
+
+## 📚 What I Learned Today
+- Refined loop and condition logic in arrays and strings.
+- Improved control over nested iteration.
+- Better understanding of edge cases in array manipulation.
+
+---
+
+## ⚙️ Tools Used
+| Language | Platform | Editor |
+|----------|----------|--------|
+| C++      | LeetCode | Online Editor |
+
+---
+
+## ⏭️ Up Next
+- Continue solving 2–3 LeetCode problems daily.
+- Explore Python implementations for the same problems.
+- Work on optimizing brute-force approaches.
+
+---
+
+> 🧠 *“Consistency always wins over intensity.” – Keep building daily!*
