@@ -1,0 +1,44 @@
+# Day 04 – 100 Days of Code Challenge
+
+## 📅 Date: May 24, 2025
+
+## 👨‍💻 Problems Solved:
+
+### 1. Smallest Index With Digit Sum Equal to Index
+- **Platform:** LeetCode
+- **Problem ID:** 3550
+- **Description:** Find the smallest index `i` in an array such that the digit sum of `nums[i]` equals `i`.
+- **Approach:** Loop through the array, calculate digit sum using modulo and division, compare it with the index.
+- **Status:** ✅ All test cases passed
+- **Language:** C++
+
+### 2. Find Words Containing a Character
+- **Platform:** LeetCode
+- **Problem ID:** 2942
+- **Description:** Given an array of strings and a character, return all indices of strings that contain that character.
+- **Approach:** Nested loop to check each character in each string; if found, index is added to the result.
+- **Status:** ✅ All test cases passed
+- **Language:** C++
+
+### 3. Remove One Element to Make the Array Strictly Increasing
+- **Platform:** LeetCode
+- **Problem ID:** 1909
+- **Description:** Determine if it's possible to make the array strictly increasing by removing at most one element.
+- **Approach:** Traverse array and count violations of strictly increasing order. If violations > 1, return false.
+- **Status:** ✅ All test cases passed
+- **Language:** C++
+
+## 📈 Learning:
+- Strengthened understanding of digit manipulation in arrays.
+- Practiced character search inside strings.
+- Worked on edge case handling in arrays.
+
+## 🔧 Tools Used:
+- Language: C++
+- IDE: LeetCode Online Editor
+
+## 🔁 Next Steps:
+- Continue solving one or more LeetCode problems daily.
+- Try to implement solutions in both C++ and Python going forward.
+
+---
