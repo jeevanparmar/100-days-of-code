@@ -13,9 +13,7 @@
      - Carry handling in addition
      - Pointer manipulation
    - **Language Used:** C++
-   - **Result:**  
-     - **Runtime:** 0 ms (Beats 100% users)  
-     - **Memory:** 77.17 MB (Beats 43.14% users)
+   
 
 2. **Reviewed Palindrome Problem with Map:**  
    - Problem: **2131. Longest Palindrome by Concatenating Two Letter Words**
@@ -50,5 +48,3 @@
 
 ---
 
-## 🔗 LeetCode Profile:
-[**Jeevan Parmar**](https://leetcode.com)
