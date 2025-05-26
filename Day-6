@@ -1,0 +1,50 @@
+# 💯 100 Days of Code Challenge
+
+Welcome to my 100 Days of Code journey! I'm committing to learning, solving problems, and growing my coding skills every day.
+
+## 🔥 Goal
+Improve my problem-solving, data structures, and algorithm skills by solving LeetCode problems daily and building solid C++ foundations.
+
+---
+
+## 📅 Day 6 – May 26, 2025
+
+### ✅ Solved Problems
+| # | Problem | Difficulty | Language | Status |
+|---|---------|------------|----------|--------|
+| 1 | [3005. Count Elements With Maximum Frequency](https://leetcode.com/problems/count-elements-with-maximum-frequency) | Easy | C++ | ✅ Accepted |
+| 2 | [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists) | Easy | C++ | ✅ Accepted |
+| 3 | [7. Reverse Integer](https://leetcode.com/problems/reverse-integer) | Medium | C++ | ✅ Accepted |
+
+### 🧠 Learnings
+- **Hash Maps** to track element frequency and get max counts.
+- **Linked List manipulation** using dummy nodes to merge sorted lists.
+- **Digit manipulation** in integers and overflow edge case handling.
+
+### ⚡ Highlights
+- Achieved **100% runtime efficiency** in all 3 problems.
+- Gained deeper understanding of algorithmic thinking in C++.
+- Practiced edge-case handling in integer boundaries.
+
+---
+
+## 📌 Progress Tracker
+
+| Day | Date | Problems Solved |
+|-----|------|------------------|
+| 1   | May 21, 2025 | ✅ |
+| 2   | May 22, 2025 | ✅ |
+| 3   | May 23, 2025 | ✅ |
+| 4   | May 24, 2025 | ✅ |
+| 5   | May 25, 2025 | ✅ |
+| 6   | May 26, 2025 | ✅ |
+
+---
+
+## 🔗 Connect with Me
+- 💼 [LinkedIn](https://www.linkedin.com/in/jeevan-parmar-8b8a2424b/)
+- 🧑‍💻 Portfolio coming soon...
+
+---
+
+Stay tuned for Day 7 🚀
