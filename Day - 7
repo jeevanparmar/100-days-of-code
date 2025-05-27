@@ -1,0 +1,58 @@
+
+# 🚀 100 Days of Code Challenge
+
+Welcome to my **100 Days of Code** journey!  
+Every day, I solve coding problems to sharpen my problem-solving skills and grow as a developer.  
+This repository is a reflection of my commitment, consistency, and continuous learning. 🌱💻
+
+---
+
+## 📅 Day 7 - *May 27, 2025*
+
+### ✨ Problems Solved
+
+---
+
+### 🧩 Problem 1: [Remove Element (LeetCode #27)](https://leetcode.com/problems/remove-element/)
+- **🟢 Difficulty:** Easy  
+- **🧠 Language:** C++  
+- **📝 Description:** Remove all occurrences of a specific value from an array in-place.  
+- **🧪 Approach:** Used a two-pointer technique to overwrite the target elements with non-target values.  
+- **✅ Status:** Accepted  
+- **⚡ Runtime:** `0 ms` (Top 100%)
+
+---
+
+### 🧩 Problem 2: [Divisible and Non-divisible Sums Difference (LeetCode #2894)](https://leetcode.com/problems/divisible-and-non-divisible-sums-difference/)
+- **🟢 Difficulty:** Easy  
+- **🧠 Language:** C++  
+- **📝 Description:** Calculate the difference between the sum of integers not divisible by `m` and those divisible by `m` from `1` to `n`.  
+- **🔍 Approach:** Arithmetic series formula for total sum, looped through multiples of `m` for divisible sum.  
+- **✅ Status:** Accepted  
+- **⚡ Runtime:** `0 ms` (Top 100%)
+
+---
+
+## 🖼️ Screenshots
+
+### ✅ Remove Element
+![Remove Element](./992a1dfa-cec4-47f3-837b-758346d3b66a.jpg)
+
+---
+
+### ✅ Divisible and Non-divisible Sums Difference
+![Divisible and Non-divisible Sums Difference](./7e8d8863-7015-4d93-b194-c5923b5871c6.png)
+
+---
+
+## 📌 Summary
+- 🔁 Maintained consistency in solving daily problems.
+- ⚙️ Focused on optimization and fundamental concepts.
+- 📚 Strengthened understanding of array operations and mathematical patterns.
+
+---
+
+## 🙌 Let's Connect!
+If you're also doing the 100 Days of Code challenge, feel free to share your journey or reach out!
+
+Stay tuned for more! 🌟  
