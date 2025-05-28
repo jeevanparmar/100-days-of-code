@@ -1,0 +1,25 @@
+# 100 Days of Code Challenge  👨‍💻
+
+Welcome to my journey of 100 Days of Code! 🚀  
+I’ve committed to learning and practicing coding every day to improve my problem-solving skills and grow as a developer.
+
+---
+
+## 📅 Day 8 - [1346. Check If N and Its Double Exist](https://leetcode.com/problems/check-if-n-and-its-double-exist/)
+- 🧠 **Concepts Practiced:** Brute-force checking with nested loops
+- 💡 **Approach:**
+  Loop through each element and check whether there exists another element such that one is double the other.
+
+```cpp
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+        for (int i = 0; i < arr.size(); i++) {
+            for (int j = i + 1; j < arr.size(); j++) {
+                if (arr[i] == 2 * arr[j] || arr[j] == 2 * arr[i])
+                    return true;
+            }
+        }
+        return false;
+    }
+};
