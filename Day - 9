@@ -1,0 +1,38 @@
+# 100 Days of Code: Day 9
+
+## 📅 Date
+May 29, 2025
+
+## ✅ Today's Progress
+Solved two LeetCode problems in C++:
+
+### 1. [Reverse Prefix of Word (LeetCode #2000)](https://leetcode.com/problems/reverse-prefix-of-word/)
+- **Difficulty**: Easy
+- **Problem**: Given a string and a character, reverse the substring from the start up to the first occurrence of that character (inclusive).
+- **Approach**:
+  - Used `string.find()` to locate the index of the character.
+  - Reversed the substring using `reverse()` with iterators.
+
+
+### 2. [Valid Parentheses (LeetCode #20)](https://leetcode.com/problems/valid-parentheses/)
+- **Difficulty**: Easy
+- **Problem**: Check if a string of brackets is valid based on proper nesting and pairing.
+- **Approach**:
+  - Used a stack to manage open brackets.
+  - Matched closing brackets with the top of the stack.
+
+
+## 🧠 What I Learned
+- Better understanding of STL functions like `find()` and `reverse()`.
+- Practiced stack data structure for validation problems.
+- Improved speed and accuracy in solving easy-level problems on LeetCode.
+
+## 🔜 Goals for Tomorrow
+- Solve at least one medium-level problem.
+- Practice a problem involving recursion or backtracking.
+
+## 📸 Proof of Work
+![Reverse Prefix of Word](./f8348de8-3982-4943-8068-c9501ca6ed9f.png)  
+![Valid Parentheses](./bca52478-736f-4c81-ad1a-e033efc14edb.jpg)
+
+---
