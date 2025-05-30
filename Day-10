@@ -1,0 +1,30 @@
+# 💯 100 Days of Code Challenge - Day 10
+
+## 📅 Date: May 30, 2025
+
+### ✅ Today's Progress
+
+- Solved **LeetCode Problem #206: Reverse Linked List**
+  - Implemented a new linked list and reversed by prepending nodes.
+  - Language: C++
+  - Status: ✅ Accepted (All test cases passed)
+
+- Solved **LeetCode Problem #2181: Merge Nodes In Between Zeros**
+  - Logic: Accumulated values between zeros into a new node and reset on zero.
+  - Language: C++
+  - Status: ✅ Accepted (All test cases passed)
+
+### 🔍 What I Learned
+
+- How to construct and manipulate a linked list in C++.
+- Reinforced knowledge of pointer operations and dynamic memory.
+- Learned how to handle special values (like 0) as markers in linked lists.
+
+### ⏭️ Next Steps
+
+- Continue practicing more linked list problems.
+- Start exploring stack or queue-based problems next.
+
+---
+
+🔗 Stay consistent. One day at a time. Let’s go! 🚀
