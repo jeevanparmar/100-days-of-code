@@ -1,0 +1,43 @@
+🚀 Day 11 - 100 Days of Code
+Date: May 31, 2025
+Today’s Progress:
+
+Solved two problems on LeetCode using C++:
+
+🟡 155. Min Stack (Medium)
+
+🟢 1518. Water Bottles (Easy)
+
+🧠 Problems Solved
+1. Min Stack (LeetCode 155)
+Topic: Stack, Design
+
+Description: Designed a stack that supports push(), pop(), top(), and getMin() all in O(1) time.
+
+Learning: Used encoding technique to store and retrieve minimum values efficiently using just one stack.
+
+Techniques: Space-optimized single stack with value manipulation.
+
+✅ Status: Solved & Submitted
+
+2. Water Bottles (LeetCode 1518)
+Topic: Math, Simulation
+
+Description: Calculated the maximum number of water bottles one can drink by exchanging empty bottles.
+
+Learning: Implemented a greedy loop to exchange and accumulate drinkable bottles.
+
+Highlight: Achieved 100% performance (0 ms runtime)!
+
+✅ Status: Solved & Submitted
+
+🛠️ Code Language & Tools
+Language: C++
+
+Platform: LeetCode
+
+🔥 Goals for Tomorrow
+Solve at least 2 problems: 1 Medium + 1 Easy/Hard
+
+Practice DSA patterns like sliding window or binary search
+
