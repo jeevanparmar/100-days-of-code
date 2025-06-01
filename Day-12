@@ -1,0 +1,36 @@
+# Day 12 of #100DaysOfCode
+
+Today I solved the following LeetCode problem in C++:
+
+## ✅ 46. Permutations  
+**Problem Link:** [Permutations](https://leetcode.com/problems/permutations/)  
+**Approach:** Used recursion and backtracking by swapping elements in-place and restoring them after recursive calls.
+
+```cpp
+class Solution {
+public:
+    void getpermutations(vector<int>& nums, int index,
+                         vector<vector<int>>& ans) {
+        if (index == nums.size()) {
+            ans.push_back({nums});
+            return;
+        }
+        for (int i = index; i < nums.size(); i++) {
+            swap(nums[index], nums[i]);
+            getpermutations(nums, index + 1, ans);
+            swap(nums[index], nums[i]);
+        }
+    }
+    
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> ans;
+        getpermutations(nums, 0, ans);
+        return ans;
+    }
+};
+```
+
+---
+
+Backtracking is powerful! Feeling more confident with recursion patterns. 💪  
+#100DaysOfCode #LeetCode #CPlusPlus #Coding
