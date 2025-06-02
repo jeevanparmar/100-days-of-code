@@ -1,0 +1,40 @@
+# Day 14 of #100DaysOfCode
+
+Today I solved the following LeetCode problem in C++:
+
+## ✅ 160. Intersection of Two Linked Lists  
+**Problem Link:** [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)  
+**Approach:** Used two pointers and switched heads when reaching the end. This ensures both pointers traverse equal lengths and meet at the intersection node, if one exists.
+
+```cpp
+class Solution {
+public:
+    ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
+        if (headA == headB)
+            return headA;
+        ListNode* first = headA;
+        ListNode* second = headB;
+        while (first != NULL && second != NULL) {
+            if (first->next == NULL) {
+                first = headB;
+                second = second->next;
+            } else if (second->next == NULL) {
+                second = headA;
+                first = first->next;
+            } else {
+                first = first->next;
+                second = second->next;
+            }
+            if (first == second) {
+                return first;
+            }
+        }
+        return NULL;
+    }
+};
+```
+
+---
+
+Working with linked lists helps build strong fundamentals. On to the next one! 🔁  
+#100DaysOfCode #LeetCode #CPlusPlus #Coding
