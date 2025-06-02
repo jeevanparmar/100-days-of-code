@@ -1,0 +1,28 @@
+# Day 13 of #100DaysOfCode
+
+Today I solved the following LeetCode problems in C++:
+
+## ✅ 704. Binary Search  
+**Problem Link:** [Binary Search](https://leetcode.com/problems/binary-search/)  
+**Approach:** Used iterative binary search to find the target by narrowing the range based on comparisons.
+
+```cpp
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int low = 0;
+        int high = nums.size()-1;
+        while(low<=high){
+            int mid = low + (high-low)/2;
+            if(nums[mid]==target) return mid;
+            else if(nums[mid] > target) high=mid-1;
+            else low = mid+1;
+        }
+        return -1;
+    }
+};
+```
+
+---
+binary search — solid day of problem solving! 💡  
+#100DaysOfCode #LeetCode #CPlusPlus #Coding
