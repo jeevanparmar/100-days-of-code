@@ -1,0 +1,28 @@
+# Day 16 of #100DaysOfCode
+
+Today I solved the following LeetCode problem in Python:
+
+## ✅ 520. Detect Capital  
+**Problem Link:** [Detect Capital](https://leetcode.com/problems/detect-capital/)  
+**Approach:** Used Python string methods (`isupper`, `islower`, and slicing) to validate the usage of capital letters in different cases.
+
+```python
+class Solution(object):
+    def detectCapitalUse(self, word):
+        """
+        :type word: str
+        :rtype: bool
+        """
+        if word.isupper():
+            return True
+        if word.islower():
+            return True
+        if word[0].isupper() and word[1:].islower():
+            return True
+        return False
+```
+
+---
+
+String manipulation in Python is clean and powerful! 🔠  
+#100DaysOfCode #LeetCode #Python #Coding
