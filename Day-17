@@ -1,0 +1,26 @@
+# Day 17 of #100DaysOfCode
+
+Today I solved the following LeetCode problem in C++:
+
+## ✅ 507. Perfect Number  
+**Problem Link:** [Perfect Number](https://leetcode.com/problems/perfect-number/)  
+**Approach:** Checked all divisors of the number up to `num / 2` and summed them. If the sum equals the number itself, it’s a perfect number.
+
+```cpp
+class Solution {
+public:
+    bool checkPerfectNumber(int num) {
+        int sum = 0;
+        for(int i = 1 ; i <= num/2 ; i++){
+            if(num%i==0) sum+=i;
+            if(sum > num ) return false;
+        }
+        return sum == num;
+    }
+};
+```
+
+---
+
+Enjoyed revisiting number theory basics with this one! 🧮  
+#100DaysOfCode #LeetCode #CPlusPlus #Coding
