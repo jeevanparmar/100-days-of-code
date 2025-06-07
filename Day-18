@@ -1,0 +1,27 @@
+# Day 18 of #100DaysOfCode
+
+Today I solved the following LeetCode problem in C++:
+
+## ✅ 344. Reverse String  
+**Problem Link:** [Reverse String](https://leetcode.com/problems/reverse-string/)  
+**Approach:** Reversed the character array in-place using a two-pointer approach from both ends toward the center.
+
+```cpp
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        // reverse(s.begin(), s.end());
+        int n = s.size();
+        for (int i = 0; i < n / 2; i++) {
+            char temp = s[i];
+            s[i] = s[n - i - 1];
+            s[n - i - 1] = temp;
+        }
+    }
+};
+```
+
+---
+
+Reversing in-place is both space-efficient and fast! 🔄  
+#100DaysOfCode #LeetCode #CPlusPlus #Coding
