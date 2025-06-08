@@ -47,7 +47,7 @@ I'm committed to coding every single day — solving problems, building projects
 ## 🙌 Let's Connect
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/jeevan-parmar-8b8a2424b/)
-- 🧑‍💻 [LeetCode](https://leetcode.com/u/mzpOhfsX8T/)
+- 🧑‍💻 [LeetCode](https://leetcode.com/u/Jeevan_Parmar_11/)
 
 ---
 
