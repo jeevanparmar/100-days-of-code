@@ -1,0 +1,29 @@
+# Day 19 of #100DaysOfCode
+
+Today I solved the following LeetCode problem in C++:
+
+## ✅ 1561. Maximum Number of Coins You Can Get  
+**Problem Link:** [Maximum Number of Coins You Can Get](https://leetcode.com/problems/maximum-number-of-coins-you-can-get/)  
+**Approach:** Sorted the array and picked the second largest from every triplet starting from the largest set to maximize the total coins. A classic greedy strategy.
+
+```cpp
+class Solution {
+public:
+    int maxCoins(vector<int>& piles) {
+        sort(piles.begin(), piles.end());
+        int coins = 0;
+        int n = piles.size() / 3;
+
+        for (int i = 0; i < n; i++) {
+            int index = n + i * 2;
+            coins += piles[index];
+        }
+        return coins;
+    }
+};
+```
+
+---
+
+Loved applying a clean greedy logic today! 🎯  
+#100DaysOfCode #LeetCode #CPlusPlus #Coding
