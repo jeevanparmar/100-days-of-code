@@ -1,0 +1,32 @@
+# Day 22 of #100DaysOfCode
+
+Today I solved the following LeetCode problem in C++:
+
+## ✅ 412. Fizz Buzz  
+**Problem Link:** [Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)  
+**Approach:** Iterated from 1 to n and applied conditions to check for divisibility by 3, 5, and both to generate the expected output.
+
+```cpp
+class Solution {
+public:
+    vector<string> fizzBuzz(int n) {
+        vector<string> ans(n);
+        for (int i = 1; i <= n; i++) {
+            if (i % 3 == 0 && i % 5 == 0)
+                ans[i - 1] = "FizzBuzz";
+            else if (i % 3 == 0)
+                ans[i - 1] = "Fizz";
+            else if (i % 5 == 0)
+                ans[i - 1] = "Buzz";
+            else
+                ans[i - 1] = to_string(i);
+        }
+        return ans;
+    }
+};
+```
+
+---
+
+Revisiting the classics is always refreshing! 🧠  
+#100DaysOfCode #LeetCode #CPlusPlus #Coding
