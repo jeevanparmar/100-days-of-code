@@ -1,0 +1,62 @@
+# Day 23 of #100DaysOfCode
+
+Today I solved the following LeetCode problems in C++:
+
+## ✅ 142. Linked List Cycle II  
+**Problem Link:** [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)  
+**Approach:** Used Floyd’s Cycle Detection algorithm. After detecting the cycle, reset one pointer to head and move both pointers one step at a time to find the cycle start.
+
+```cpp
+class Solution {
+public:
+    ListNode* detectCycle(ListNode* head) {
+        if (!head || !head->next)
+            return nullptr;
+
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        while (fast && fast->next) {
+            slow = slow->next;
+            fast = fast->next->next;
+            if (slow == fast) {
+                slow = head;
+                while (slow != fast) {
+                    slow = slow->next;
+                    fast = fast->next;
+                }
+                return slow;
+            }
+        }
+        return nullptr;
+    }
+};
+```
+
+---
+
+## ✅ 3423. Maximum Difference Between Adjacent Elements in a Circular Array  
+**Problem Link:** [Maximum Difference in Circular Array](https://leetcode.com/problems/maximum-difference-between-adjacent-elements-in-a-circular-array/)  
+**Approach:** Iterated over the array and computed the absolute difference between each adjacent element including the last and first (circular check).
+
+```cpp
+class Solution {
+public:
+    int maxAdjacentDistance(vector<int>& nums) {
+        int n = nums.size();
+        int ans = abs(nums[n-1]-nums[0]);
+
+        for (int i = 1; i < n; i++) {
+            int diff = abs(nums[i - 1] - nums[i]);
+            ans = max(ans, diff);
+        }
+        return ans;
+    }
+};
+```
+
+---
+
+🧠 **Takeaway:** Learned how Floyd’s algorithm not only detects loops but also locates the starting node. Also practiced handling circular conditions cleanly in arrays.
+
+#100DaysOfCode #LeetCode #CPlusPlus #Coding #buildinpublic
