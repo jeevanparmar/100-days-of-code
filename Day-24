@@ -1,0 +1,23 @@
+# Day 24 of #100DaysOfCode
+
+Today I solved the following LeetCode problem in C++:
+
+## ✅ 2784. Check if Array is Good  
+**Problem Link:** [Check if Array is Good](https://leetcode.com/problems/check-if-array-is-good/)  
+**Approach:**  
+Sorted the array, checked if it contains all integers from 1 to n - 1 and that the largest element occurs at least twice.
+
+```cpp
+class Solution {{
+public:
+    bool isGood(vector<int>& nums) {{
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        if(n < 2) return false;
+        if(nums[n-2] != nums[n-1] && n != nums[n-2]) return false;
+        for(int i = 0 ; i < n-1 ; i++) {{
+            if((i+1) != nums[i]) return false;
+        }}
+        return true;
+    }}
+}};
