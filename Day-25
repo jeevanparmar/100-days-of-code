@@ -1,0 +1,32 @@
+# Day 25 of #100DaysOfCode
+
+Today I solved the following LeetCode problem in C++:
+
+## ✅ 3442. Maximum Difference Between Even and Odd Frequency I  
+**Problem Link:** [Maximum Difference Between Even and Odd Frequency I](https://leetcode.com/problems/maximum-difference-between-even-and-odd-frequency-i)  
+**Approach:**  
+- Used `unordered_map<char, int>` to count character frequencies  
+- Tracked:  
+  - `oddf` as max of odd frequencies  
+  - `evenf` as min of even frequencies (initialized with `INT_MAX`)  
+- Final result = `oddf - evenf`  
+
+```cpp
+class Solution {
+public:
+    int maxDifference(string s) {
+        unordered_map<char, int> mp;
+        int oddf = 0, evenf = INT_MAX;
+        for (auto i : s) {
+            mp[i]++;
+        }
+        for (auto& it : mp) {
+            if (it.second % 2 == 0)
+                evenf = min(evenf, it.second);
+            else {
+                oddf = max(oddf, it.second);
+            }
+        }
+        return oddf - evenf;
+    }
+};
