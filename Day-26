@@ -1,0 +1,48 @@
+# Day 26 of #100DaysOfCode
+
+Today I solved the following LeetCode POTD in C++:
+
+## ✅ 1432. Max Difference You Can Get From Changing an Integer  
+**Problem Link:** [1432. Max Difference You Can Get From Changing an Integer](https://leetcode.com/problems/max-difference-you-can-get-from-changing-an-integer/)  
+**Approach:**  
+- Converted integer to string to manipulate digits  
+- For max value: replaced first non-'9' digit with '9'  
+- For min value:
+  - If the first digit ≠ '1', replaced it with '1'
+  - Otherwise, replaced first suitable digit (not '0' or '1') with '0'  
+- Final result = `max - min`
+
+```cpp
+class Solution {
+public:
+    int maxDiff(int num) {
+        string str = to_string(num);
+        string maxN = str;
+        string minN = str;
+
+        for (int i = 0; i < maxN.size(); i++) {
+            if (maxN[i] != '9') {
+                char c = maxN[i];
+                replace(maxN.begin(), maxN.end(), c, '9');
+                break;
+            }
+        }
+
+        if (minN[0] != '1') {
+            char toReplace = minN[0];
+            replace(minN.begin(), minN.end(), toReplace, '1');
+        } else {
+            for (int i = 1; i < minN.size(); i++) {
+                if (minN[i] != '0' && minN[i] != '1') {
+                    char toReplace = minN[i];
+                    replace(minN.begin(), minN.end(), toReplace, '0');
+                    break;
+                }
+            }
+        }
+
+        int a = stoi(maxN);
+        int b = stoi(minN);
+        return a - b;
+    }
+};
