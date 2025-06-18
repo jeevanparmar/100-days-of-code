@@ -1,0 +1,36 @@
+# Day 29 of #100DaysOfCode
+
+🔸 **Date:** 15 June 2025  
+🔸 **Problems Solved:** 3  
+🔸 **Language:** C++  
+🔸 **Topics Covered:** Two-pointer technique, sorting, array manipulation
+
+---
+
+## ✅ Solved LeetCode Problems:
+
+1. [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)  
+   - Merged two sorted arrays using in-place logic and sorting.
+   - Practiced managing pointers and in-place updates.
+
+2. [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/)  
+   - Applied the two-pointer technique to maximize the water container area.
+
+3. [561. Array Partition](https://leetcode.com/problems/array-partition/)  
+   - Focused on greedy approach and sorting to maximize the sum of pairs.
+
+---
+
+## 💡 What I Learned:
+- Improved understanding of in-place array manipulation.
+- Strengthened my grasp on the two-pointer technique.
+- Learned to optimize array operations for both space and time.
+
+---
+
+## 🔗 Hashtags & Community Tags:
+#100DaysOfCode #LeetCode #CPlusPlus #buildinpublic #Coding #ProblemSolving
+
+---
+
+📌 Stay consistent. Stay curious. Keep building! 🚀
