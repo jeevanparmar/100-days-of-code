@@ -1,0 +1,32 @@
+# Day 30 of #100DaysOfCode
+
+🔸 **Date:** 16 June 2025  
+🔸 **Problems Solved:** 2  
+🔸 **Language:** C++  
+🔸 **Topics Covered:** Sorting, Two Pointers, String Traversal
+
+---
+
+## ✅ Solved LeetCode Problems:
+
+1. [2294. Partition Array Such That Maximum Difference Is K](https://leetcode.com/problems/partition-array-such-that-maximum-difference-is-k/)  
+   - Sorted array, grouped elements using two pointers to ensure difference ≤ K.
+
+2. [1903. Largest Odd Number in String](https://leetcode.com/problems/largest-odd-number-in-string/)  
+   - Scanned string from the end to find the largest odd-numbered prefix.
+
+---
+
+## 💡 What I Learned:
+- Improved my use of two pointers in partitioning logic.
+- Practiced reverse traversal and substring slicing in C++.
+- Milestone day — hit 30 days of consistent effort!
+
+---
+
+## 🔗 Hashtags & Tags:
+#100DaysOfCode #LeetCode #CPlusPlus #buildinpublic #ProblemSolving
+
+---
+
+📌 Staying consistent is paying off. Here’s to the next 70! 🚀
