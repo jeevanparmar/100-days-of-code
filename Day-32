@@ -1,0 +1,120 @@
+# Day 32 of #100DaysOfCode
+
+Today I solved the following LeetCode problems in C++:
+
+## ✅ 3085. Minimum Deletions to Make String K-Special
+
+**Problem Link:** [3085. Minimum Deletions to Make String K-Special](https://leetcode.com/problems/minimum-deletions-to-make-string-k-special/)
+**Approach:**
+
+* Count frequency of characters.
+* Sort frequencies and simulate deletion process to satisfy the K constraint.
+* Track minimum deletions.
+
+```cpp
+class Solution {
+public:
+    int minimumDeletions(string word, int k) {
+        unordered_map<char, int> mp;
+        for (int i = 0; i < word.size(); i++) {
+            mp[word[i]]++;
+        }
+        vector<int> arr;
+        for (auto& it : mp) {
+            arr.push_back(it.second);
+        }
+        sort(arr.begin(), arr.end());
+        int ans = INT_MAX, prevsum = 0;
+        for (int i = 0; i < arr.size(); i++) {
+            int del = 0;
+            for (int j = arr.size() - 1; j > i; j--) {
+                if (arr[j] - arr[i] > k)
+                    del += abs(arr[j] - arr[i]) - k;
+                else
+                    break;
+            }
+            del += prevsum;
+            prevsum += arr[i];
+            ans = min(ans, del);
+        }
+        return ans;
+    }
+};
+```
+
+---
+
+## ✅ 867. Transpose Matrix
+
+**Problem Link:** [867. Transpose Matrix](https://leetcode.com/problems/transpose-matrix/)
+**Approach:**
+
+* Swap rows with columns to form a new matrix with flipped axes.
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> transpose(vector<vector<int>>& matrix) {
+        int row = matrix.size();
+        int col = matrix[0].size();
+        vector<vector<int>> ans(col,vector<int>(row));
+        for (int i = 0; i < row ;i++) {
+            for (int j = 0; j < col; j++) {
+                ans[j][i]=matrix[i][j];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+---
+
+## ✅ 566. Reshape the Matrix
+
+**Problem Link:** [566. Reshape the Matrix](https://leetcode.com/problems/reshape-the-matrix/)
+**Approach:**
+
+* Convert 2D matrix to 1D, then reshape to required dimensions.
+* Only proceed if reshape is valid (same number of elements).
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) {
+        int row = mat.size();
+        int col = mat[0].size();
+        if (row * col != r * c)
+            return mat;
+
+        vector<vector<int>> ans(r, vector<int>(c));
+        vector<int> arr;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                arr.push_back(mat[i][j]);
+            }
+        }
+
+        int idx = 0;
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                ans[i][j] = arr[idx];
+                idx++;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+---
+
+💡 **What I Learned:**
+
+* Practiced manipulating matrix dimensions.
+* Optimized deletion strategies using sorted frequencies.
+* Improved skills with string maps and vector transformations.
+
+---
+
+\#100DaysOfCode #LeetCode #CPlusPlus #buildinpublic #ProblemSolving
