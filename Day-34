@@ -1,0 +1,55 @@
+# Day 34 of #100DaysOfCode
+
+Today I solved the following LeetCode problem:
+
+## ✅ 599. Minimum Index Sum of Two Lists
+
+**Problem Link:** [599. Minimum Index Sum of Two Lists](https://leetcode.com/problems/minimum-index-sum-of-two-lists/)
+**Approach:**
+
+* Compare elements from both lists.
+* Track the minimum index sum for common elements.
+* Store all such elements with the minimum index sum.
+
+```cpp
+class Solution {
+public:
+    vector<string> findRestaurant(vector<string>& list1,
+                                  vector<string>& list2) {
+        vector<string> ans;
+        bool firstmatch = true;
+        int mini = INT_MAX;
+        for (int i = 0; i < list1.size(); i++) {
+            for (int j = 0; j < list2.size(); j++) {
+                if(i + j > mini) break;
+                if (list1[i] == list2[j]) {
+                    int n = i + j;
+                    if (firstmatch) {
+                        mini = n;
+                        firstmatch = false;
+                    }
+                    if (mini == n) {
+                        ans.push_back(list1[i]);
+                    } else if (mini > n) {
+                        ans.clear();
+                        ans.push_back(list1[i]);
+                        mini = n;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+---
+
+💡 **What I Learned:**
+
+* Practiced comparing two lists with nested loops.
+* Learned efficient pruning using early exit (`i + j > mini`).
+
+---
+
+\#100DaysOfCode #LeetCode #CPlusPlus #buildinpublic #ProblemSolving
