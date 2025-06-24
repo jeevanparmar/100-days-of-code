@@ -1,0 +1,114 @@
+# Day 35 of #100DaysOfCode
+
+Today I solved the following LeetCode problems:
+
+## ✅ 61. Rotate List
+
+**Problem Link:** [61. Rotate List](https://leetcode.com/problems/rotate-list/)
+**Approach:**
+
+* Count the number of nodes.
+* Connect tail to head to form a cycle, then break it at the correct position.
+
+```cpp
+class Solution {
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        if (!head || !head->next || k == 0)
+            return head;
+
+        ListNode* last = head;
+        int n = 1;
+        while (last->next != NULL) {
+            last = last->next;
+            n++;
+        }
+
+        k = n - (k % n);
+        ListNode* temp = head;
+        while (k != 1) {
+            k--;
+            temp = temp->next;
+        }
+
+        last->next = head;
+        ListNode* ans = temp->next;
+        temp->next = NULL;
+
+        return ans;
+    }
+};
+```
+
+---
+
+## ✅ 1290. Convert Binary Number in a Linked List to Integer
+
+**Problem Link:** [1290. Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)
+**Approach:**
+
+* Traverse and collect bits.
+* Use power of two logic to convert binary to decimal.
+
+```cpp
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        ListNode* temp = head;
+        vector<int> arr;
+        int ans = 0;
+        while (temp) {
+            arr.push_back(temp->val);
+            temp = temp->next;
+        }
+        int n = arr.size();
+        for (int i = 0; i < n; i++) {
+            if (arr[i]) {
+                ans += pow(2, n - i - 1);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+---
+
+## ✅ 1832. Check if the Sentence Is Pangram
+
+**Problem Link:** [1832. Check if the Sentence Is Pangram](https://leetcode.com/problems/check-if-the-sentence-is-pangram/)
+**Approach:**
+
+* Use hash map to count distinct letters.
+* Check if the map has 26 characters.
+
+```cpp
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        int n = sentence.size();
+        if (n < 26) {
+            return false;
+        }
+        unordered_map<char, int> mp;
+        for (int i = 0; i < n; i++) {
+            mp[sentence[i]]++;
+        }
+        if (mp.size() == 26)
+            return true;
+
+        return false;
+    }
+};
+```
+
+---
+
+💡 **What I Learned:**
+
+* Refreshed concepts of list rotation and binary to decimal conversion.
+* Practiced string processing with hash maps.
+
+---
+
+\#100DaysOfCode #LeetCode #CPlusPlus #buildinpublic #ProblemSolving
