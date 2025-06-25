@@ -1,0 +1,120 @@
+# Day 36 of #100DaysOfCode
+
+Today I solved the following LeetCode problems:
+
+## ✅ 100. Same Tree
+
+**Problem Link:** [100. Same Tree](https://leetcode.com/problems/same-tree/)
+**Approach:**
+
+* Used recursion to check if two trees are structurally identical with equal node values.
+
+```cpp
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if (p == NULL && q == NULL)
+            return true;
+        if (p == NULL || q == NULL)
+            return false;
+        if (p->val != q->val)
+            return false;
+        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+    }
+};
+```
+
+---
+
+## ✅ 896. Monotonic Array
+
+**Problem Link:** [896. Monotonic Array](https://leetcode.com/problems/monotonic-array/)
+**Approach:**
+
+* Checked direction (increasing or decreasing) and validated throughout the array.
+
+```cpp
+class Solution {
+public:
+    bool isMonotonic(vector<int>& nums) {
+        int n = nums.size();
+        if (n == 1)
+            return true;
+        int j = 0;
+        bool increase = false;
+
+        while (j < n - 1) {
+            if (nums[j] != nums[j + 1]) {
+                if (nums[j] < nums[j + 1])
+                    increase = true;
+                else
+                    increase = false;
+                j++;
+                break;
+            }
+            j++;
+        }
+        for (int i = j; i < nums.size(); i++) {
+            if (increase) {
+                if (nums[i - 1] > nums[i])
+                    return false;
+            } else {
+                if (nums[i - 1] < nums[i])
+                    return false;
+            }
+        }
+
+        return true;
+    }
+};
+```
+
+---
+
+## ✅ 38. Count and Say
+
+**Problem Link:** [38. Count and Say](https://leetcode.com/problems/count-and-say/)
+**Approach:**
+
+* Used iterative string processing to construct the sequence based on counting repeating characters.
+
+```cpp
+class Solution {
+public:
+    string countAndSay(int n) {
+        string ans = "1";
+        if (n == 1) {
+            return ans;
+        }
+        while (--n) {
+            string temp = "";
+            int count = 1;
+            char a = ans[0];
+            for (int i = 1; i < ans.size(); i++) {
+                if (a == ans[i]) {
+                    count++;
+                } else {
+                    temp += to_string(count) + a;
+                    count = 1;
+                    a = ans[i];
+                }
+            }
+            temp += to_string(count) + ans[ans.size() - 1];
+            ans = temp;
+        }
+        return ans;
+    }
+};
+```
+
+---
+
+💡 **What I Learned:**
+
+* Practiced tree traversal and recursion.
+* Reinforced logic with arrays and strings.
+* Got introduced to mathematical sequence generation.
+
+---
+
+\#100DaysOfCode #LeetCode #CPlusPlus #buildinpublic #ProblemSolving
