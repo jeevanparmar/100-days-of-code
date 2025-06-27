@@ -1,0 +1,44 @@
+# Day 38 of #100DaysOfCode
+
+Today I solved the following LeetCode problem:
+
+## ✅ 897. Increasing Order Search Tree
+
+**Problem Link:** [897. Increasing Order Search Tree](https://leetcode.com/problems/increasing-order-search-tree/)
+**Approach:**
+
+* Used an in-order traversal to rebuild the tree into a right-skewed increasing order binary search tree.
+* Created a new tree node for each visited node and appended it to the right of the current node.
+
+```cpp
+class Solution {
+public:
+    TreeNode* prev = nullptr;
+    void helper(TreeNode* root) {
+        if (root == NULL)
+            return;
+        helper(root->left);
+        TreeNode* temp = new TreeNode(root->val);
+        prev->right = temp;
+        prev = temp;
+        helper(root->right);
+    }
+    TreeNode* increasingBST(TreeNode* root) {
+        TreeNode* newRoot = new TreeNode();
+        prev = newRoot;
+        helper(root);
+        return newRoot->right;
+    }
+};
+```
+
+---
+
+💡 **What I Learned:**
+
+* Practiced advanced in-order traversal technique.
+* Learned how to restructure a binary search tree while preserving node values.
+
+---
+
+\#100DaysOfCode #LeetCode #CPlusPlus #buildinpublic #ProblemSolving
