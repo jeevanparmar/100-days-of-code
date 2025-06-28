@@ -1,0 +1,135 @@
+# Day 39 of #100DaysOfCode
+
+Today I solved the following LeetCode problems:
+
+## ✅ 145. Binary Tree Postorder Traversal
+
+**Problem Link:** [145. Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)
+**Approach:** Recursively visited left subtree, right subtree, and then root.
+
+```cpp
+class Solution {
+public:
+    void helper(TreeNode* root, vector<int>& v) {
+        if (!root)
+            return;
+        helper(root->left, v);
+        helper(root->right, v);
+        v.push_back(root->val);
+    }
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        helper(root, ans);
+        return ans;
+    }
+};
+```
+
+---
+
+## ✅ 2095. Delete the Middle Node of a Linked List
+
+**Problem Link:** [2095. Delete the Middle Node of a Linked List](https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/)
+**Approach:** Used slow and fast pointers to find the middle and removed it.
+
+```cpp
+class Solution {
+public:
+    ListNode* deleteMiddle(ListNode* head) {
+        ListNode* fast = head;
+        ListNode* slow = head;
+        ListNode* prev = NULL;
+        if (!head->next)
+            return NULL;
+        while (fast && fast->next) {
+            fast = fast->next->next;
+            prev = slow;
+            slow = slow->next;
+        }
+        prev->next = prev->next->next;
+        return head;
+    }
+};
+```
+
+---
+
+## ✅ 19. Remove Nth Node From End of List
+
+**Problem Link:** [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
+**Approach:** Counted list length, then removed nth node from end using two pointers.
+
+```cpp
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* temp = head;
+        ListNode* prev = head;
+        int length = 1;
+        int num = n;
+        if (!head->next)
+            return NULL;
+        while (temp->next != NULL) {
+            if (num > 0)
+                num--;
+            else
+                prev = prev->next;
+            temp = temp->next;
+            length++;
+        }
+        if (length == n) {
+            return head->next;
+        }
+        prev->next = prev->next->next;
+        return head;
+    }
+};
+```
+
+---
+
+## ✅ 1122. Relative Sort Array
+
+**Problem Link:** [1122. Relative Sort Array](https://leetcode.com/problems/relative-sort-array/)
+**Approach:** Counted frequency of elements in arr1 using map, added matching elements based on arr2 order, and sorted the remaining.
+
+```cpp
+class Solution {
+public:
+    vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+        unordered_map<int, int> mp;
+        vector<int> ans;
+
+        for (int i = 0; i < arr1.size(); i++) {
+            mp[arr1[i]]++;
+        }
+        for (int i = 0; i < arr2.size(); i++) {
+            while (mp[arr2[i]] != 0) {
+                ans.push_back(arr2[i]);
+                mp[arr2[i]]--;
+            }
+            mp.erase(arr2[i]);
+        }
+        int n = ans.size();
+        for (auto& it : mp) {
+            while (it.second) {
+                ans.push_back(it.first);
+                it.second--;
+            }
+        }
+        sort(ans.begin() + n, ans.end());
+        return ans;
+    }
+};
+```
+
+---
+
+💡 **What I Learned:**
+
+* Practiced linked list manipulation using two-pointer methods.
+* Gained fluency in list sorting and tree traversal strategies.
+
+---
+
+\#100DaysOfCode #LeetCode #CPlusPlus #buildinpublic #ProblemSolving
