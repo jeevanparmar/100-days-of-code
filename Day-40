@@ -1,0 +1,84 @@
+# Day 40 of #100DaysOfCode
+
+Date: June 29, 2025
+
+Today I solved the following LeetCode problems in C++:
+
+---
+
+## ✅ 2130. Maximum Twin Sum of a Linked List
+**Problem Link:** [Maximum Twin Sum of a Linked List](https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/)  
+**Approach:** Used fast and slow pointers to find the middle of the list, then reversed the second half and calculated twin sums.
+
+```cpp
+class Solution {
+public:
+    ListNode* reverse(ListNode* head) {
+        ListNode* prev = nullptr;
+        ListNode* curr = head;
+
+        while (curr != nullptr) {
+            ListNode* nextNode = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = nextNode;
+        }
+        return prev;
+    }
+
+    int pairSum(ListNode* head) {
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while (fast && fast->next) {
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+
+        ListNode* twinlist = reverse(slow);
+
+        ListNode* ith = head;
+        int maxsum = INT_MIN;
+        while (twinlist) {
+            int sum = ith->val + twinlist->val;
+            maxsum = max(maxsum, sum);
+            twinlist = twinlist->next;
+            ith = ith->next;
+        }
+
+        return maxsum;
+    }
+};
+```
+
+---
+
+## ✅ Partition String (Custom Logic)
+**Approach:** Partitioned the string greedily into non-repeating segments.
+
+```cpp
+class Solution {
+public:
+    vector<string> partitionString(string s) {
+        int n = s.size();
+        vector<string> ans;
+        unordered_map<string,int> mp;
+        string newSeg = "";
+        for(int i = 0 ; i< n ; i++) {
+            newSeg += s[i];
+            if(mp.find(newSeg) == mp.end()) {
+                ans.push_back(newSeg);
+                mp[newSeg]++;
+                newSeg = "";
+            } else {
+                continue;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+---
+
+Focusing on understanding pointer logic and string segmentation today.  
+#100DaysOfCode #LeetCode #CPlusPlus #buildinpublic #Coding
