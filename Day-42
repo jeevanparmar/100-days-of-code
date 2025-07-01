@@ -1,0 +1,145 @@
+
+# 🚀 Day 42 of #100DaysOfCode
+
+Today, I solved 5 Binary Tree problems from LeetCode using C++. The focus was on traversal, view, symmetry, and structure manipulation.
+
+---
+
+## 🔹 1. [199. Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
+
+```cpp
+class Solution {
+public:
+    vector<int> rightSideView(TreeNode* root) {
+        vector<int> ans;
+        if (!root) return ans;
+        queue<TreeNode*> q;
+        q.push(root);
+        while (!q.empty()) {
+            int levelSize = q.size();  
+            for (int i = 0; i < levelSize; ++i) {
+                TreeNode* node = q.front();
+                q.pop();
+                if (i == levelSize - 1)
+                    ans.push_back(node->val);
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+---
+
+## 🔹 2. [1448. Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/)
+
+```cpp
+class Solution {
+public:
+    void helper(TreeNode* root , int& count , int maxval){
+        if(!root) return ;
+        if(maxval <= root->val) count++;
+        maxval =  max(maxval , root->val);
+        helper(root->left, count ,maxval );
+        helper(root->right , count , maxval);
+    }
+
+    int goodNodes(TreeNode* root) {
+        int count = 0;
+        helper(root , count , root->val);
+        return count;
+    }
+};
+```
+
+---
+
+## 🔹 3. [226. Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
+
+```cpp
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        queue<TreeNode*> q;
+        if(!root) return root;
+        q.push(root);
+        while(!q.empty()){
+            TreeNode* temp = q.front();
+            q.pop();
+            swap(temp->left, temp->right);
+            if(temp->left) q.push(temp->left);
+            if(temp->right) q.push(temp->right);
+        }
+        return root;
+    }
+};
+```
+
+---
+
+## 🔹 4. [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
+
+```cpp
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if(!root) return 0;
+        int maxDepth = 0;
+        queue<TreeNode*> q;
+        q.push(root);
+        q.push(NULL);
+        while(!q.empty()){
+            TreeNode* temp = q.front();
+            q.pop();
+            if(temp == NULL){
+                maxDepth++;
+                if(!q.empty()) q.push(NULL);
+            } else {
+                if(temp->left) q.push(temp->left);
+                if(temp->right) q.push(temp->right);
+            }
+        }
+        return maxDepth;
+    }
+};
+```
+
+---
+
+## 🔹 5. [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)
+
+```cpp
+class Solution {
+public:
+    bool helper(TreeNode* rootl , TreeNode* rootr){
+        if(rootl == NULL && rootr == NULL)
+            return true;
+        if(rootl == NULL || rootr == NULL)
+            return false;
+        if(rootl->val != rootr->val)
+            return false;
+        return helper(rootl->left , rootr->right) && helper(rootl->right , rootr->left);
+    }
+
+    bool isSymmetric(TreeNode* root) {
+        return helper(root->left , root->right);
+    }
+};
+```
+
+---
+
+## 📘 Summary
+
+- ✅ Practiced tree traversal: preorder, level order
+- ✅ Learned to identify symmetric trees
+- ✅ Understood maximum depth and tree inversion
+- ✅ Strengthened logic with recursive and iterative patterns
+
+---
+
+> 🔁 Stay consistent. Trees are becoming easier day by day!  
+> 🧠 Keep learning and improving.  
+> 🚀 #100DaysOfCode #LeetCode #CPP #buildinpublic
