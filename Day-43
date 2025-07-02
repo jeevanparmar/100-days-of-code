@@ -1,0 +1,80 @@
+# 🚀 Day 43 of #100DaysOfCode
+
+_Date: 30-06-2025_
+
+Solved two more binary-tree problems on LeetCode using C++.
+
+---
+
+## 🔹 110. Balanced Binary Tree
+```cpp
+class Solution {
+public:
+    int checkHeight(TreeNode* node) {
+        if (!node) return 0;               // height of null node
+
+        int leftHeight = checkHeight(node->left);
+        if (leftHeight == -1) return -1;   // left subtree not balanced
+
+        int rightHeight = checkHeight(node->right);
+        if (rightHeight == -1) return -1;  // right subtree not balanced
+
+        if (abs(leftHeight - rightHeight) > 1)
+            return -1;                     // current node unbalanced
+
+        return max(leftHeight, rightHeight) + 1; // return height if balanced
+    }
+
+    bool isBalanced(TreeNode* root) {
+        return checkHeight(root) != -1;
+    }
+};
+```
+
+**Approach:** Post‑order recursion. If any subtree is unbalanced (returns **‑1**), propagate that up. Otherwise return height.
+
+---
+
+## 🔹 103. Binary Tree Zigzag Level Order Traversal
+```cpp
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        vector<vector<int>> ans;
+        if (!root) return ans;
+
+        queue<TreeNode*> q;
+        q.push(root);
+        bool flag = false;                 // false → L→R, true → R→L
+
+        while (!q.empty()) {
+            int size = q.size();
+            vector<int> curr;
+            for (int i = 0; i < size; ++i) {
+                TreeNode* temp = q.front();
+                q.pop();
+                curr.push_back(temp->val);
+                if (temp->left)  q.push(temp->left);
+                if (temp->right) q.push(temp->right);
+            }
+            if (flag) std::reverse(curr.begin(), curr.end());
+            flag = !flag;                  // flip direction
+            ans.push_back(curr);
+        }
+        return ans;
+    }
+};
+```
+
+**Approach:** Standard BFS with a `flag` to reverse every alternate level for zig‑zag order.
+
+---
+
+## 📘 Key Takeaways
+- Learned to detect height‑balanced trees efficiently in **O(n)** time.
+- Practiced alternate‑order BFS traversal using a simple boolean flip.
+
+---
+
+> 🔁 Consistency over intensity — Day 43 done!  
+> 🧠 #100DaysOfCode #LeetCode #CPlusPlus #buildinpublic
