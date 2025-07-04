@@ -1,0 +1,51 @@
+# Day 45 - 04-07-2025 🚀
+
+## Problems Solved 🧠
+
+### ✅ 700. Search in a Binary Search Tree
+```cpp
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        if (!root)
+            return NULL;
+        if (root->val == val)
+            return root;
+        if (root->val > val)
+            return searchBST(root->left, val);
+        else
+            return searchBST(root->right, val);
+    }
+};
+```
+
+---
+
+### ✅ 701. Insert into a Binary Search Tree
+```cpp
+class Solution {
+public:
+    TreeNode* insertIntoBST(TreeNode* root, int val) {
+        if (!root) {
+            root = new TreeNode(val);
+            return root;
+        }
+        if (root->val > val) {
+            root->left = insertIntoBST(root->left, val);
+        } else {
+            root->right = insertIntoBST(root->right, val);
+        }
+        return root;
+    }
+};
+```
+
+---
+
+## Key Learnings ✨
+- Practiced searching and inserting nodes in a Binary Search Tree.
+- Reinforced recursion concepts and tree traversal logic.
+
+---
+
+#100DaysOfCode #LeetCode #CPlusPlus #buildinpublic
