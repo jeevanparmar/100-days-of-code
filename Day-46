@@ -1,0 +1,63 @@
+# Day 46 – 4 July 2025
+
+Today I solved three LeetCode problems in C++.
+
+---
+
+## 1614. Maximum Nesting Depth of the Parentheses
+```cpp
+class Solution {
+public:
+    int maxDepth(string s) {
+        int ans = 0, curr = 0;
+        for (char c : s) {
+            if (c == '(') curr++;
+            if (c == ')') {
+                ans = max(ans, curr);
+                curr--;
+            }
+        }
+        return ans;
+    }
+};
+
+2761. Prime Pairs With Target Sum
+
+class Solution {
+public:
+    vector<vector<int>> findPrimePairs(int n) {
+        vector<bool> isPrime(n + 1, true);
+        isPrime[0] = isPrime[1] = false;
+
+        // Sieve of Eratosthenes
+        for (int i = 2; i * i <= n; ++i)
+            if (isPrime[i])
+                for (int j = i * i; j <= n; j += i)
+                    isPrime[j] = false;
+
+        // Two-pointer‑like scan (half range)
+        vector<vector<int>> primePairs;
+        for (int i = 2; i <= n / 2; ++i) {
+            int complement = n - i;
+            if (isPrime[i] && isPrime[complement])
+                primePairs.push_back({i, complement});
+        }
+        return primePairs;
+    }
+};
+
+
+1394. Find Lucky Integer in an Array
+
+class Solution {
+public:
+    int findLucky(vector<int>& arr) {
+        unordered_map<int,int> freq;
+        for (int num : arr) freq[num]++;
+        int lucky = -1;
+        for (auto &p : freq)
+            if (p.first == p.second)
+                lucky = max(lucky, p.first);
+        return lucky;
+    }
+};
