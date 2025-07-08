@@ -1,0 +1,95 @@
+## 📅 Day 49 - July 7, 2025
+
+**Today’s Progress**  
+Solved two BFS-related problems — one on graphs and one on trees. Focused on traversal techniques, queue usage, and constraints checking.
+
+### ✅ Problems Solved
+
+1. [1971. Find if Path Exists in Graph](https://leetcode.com/problems/find-if-path-exists-in-graph/)
+2. [1609. Even Odd Tree](https://leetcode.com/problems/even-odd-tree/)
+
+---
+
+### 🔹 1971. Find if Path Exists in Graph
+
+**Approach**:  
+- Created an adjacency list for the undirected graph.
+- Used **BFS** to explore all reachable nodes from the `source`.
+- If we reach the `destination`, we return `true`.
+
+**Code**:
+```cpp
+class Solution {
+public:
+    bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
+        if (source == destination) return true;
+
+        vector<vector<int>> adj(n);
+        for (auto& edge : edges) {
+            adj[edge[0]].push_back(edge[1]);
+            adj[edge[1]].push_back(edge[0]);
+        }
+
+        vector<bool> visited(n, false);
+        queue<int> q;
+        q.push(source);
+        visited[source] = true;
+
+        while (!q.empty()) {
+            int node = q.front(); q.pop();
+
+            for (int neighbor : adj[node]) {
+                if (!visited[neighbor]) {
+                    if (neighbor == destination) return true;
+                    visited[neighbor] = true;
+                    q.push(neighbor);
+                }
+            }
+        }
+
+        return false;
+    }
+};
+🔸 1609. Even Odd Tree
+Approach:
+
+Level-order traversal using BFS.
+
+For even-indexed levels, values must be odd and strictly increasing.
+
+For odd-indexed levels, values must be even and strictly decreasing.
+
+Code:class Solution {
+public:
+    bool isEvenOddTree(TreeNode* root) {
+        queue<TreeNode*> q;
+        q.push(root);
+        bool even = true; 
+
+        while (!q.empty()) {
+            int size = q.size();
+            int prevVal = even ? INT_MIN : INT_MAX;
+
+            for (int i = 0; i < size; i++) {
+                TreeNode* node = q.front();
+                q.pop();
+
+                int val = node->val;
+
+                if (even) {
+                    if (val % 2 == 0 || val <= prevVal) return false;
+                } else {
+                    if (val % 2 != 0 || val >= prevVal) return false;
+                }
+
+                prevVal = val;
+
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
+            }
+            even = !even;  
+        }
+
+        return true;
+    }
+};
