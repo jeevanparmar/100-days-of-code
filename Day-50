@@ -1,0 +1,70 @@
+## 📅 Day 50 - July 8, 2025
+
+**Milestone Reached:**  
+✅ 50 Days Complete in #100DaysOfCode!  
+Grateful for the learning, discipline, and growth so far 🚀
+
+---
+
+### ✅ Problem Solved
+
+- [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/)
+
+---
+
+### 🔍 Problem Summary
+
+We’re given a matrix representing connections between cities. A province is a group of cities that are directly or indirectly connected.  
+We need to count how many such groups (provinces) exist.
+
+---
+
+### 💡 Approach
+
+- Convert the `isConnected` matrix to an adjacency list (undirected graph).
+- Use **DFS** to explore all cities reachable from an unvisited city.
+- Every time we perform DFS from an unvisited node, we’ve found a new province.
+
+---
+
+### 👨‍💻 Code
+
+```cpp
+class Solution {
+private:
+    void dfs(vector<vector<int>>& adj, vector<int>& vist, int node) {
+        vist[node] = 1;
+        for (auto it : adj[node]) {
+            if (vist[it] == 0) {
+                dfs(adj, vist, it);
+            }
+        }
+    }
+    
+public:
+    int findCircleNum(vector<vector<int>>& isConnected) {
+        int n = isConnected.size();
+        vector<vector<int>> adj(n);
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (isConnected[i][j] == 1 && i != j) {
+                    adj[i].push_back(j);
+                    adj[j].push_back(i);
+                }
+            }
+        }
+
+        vector<int> vist(n, 0); 
+        int cnt = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (vist[i] == 0) {
+                cnt++;
+                dfs(adj, vist, i);
+            }
+        }
+
+        return cnt;
+    }
+};
