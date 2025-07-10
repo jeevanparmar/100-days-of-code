@@ -1,0 +1,46 @@
+## 📅 Day 51 - July 9, 2025
+
+**Problem Solved:**  
+- [55. Jump Game](https://leetcode.com/problems/jump-game/)
+
+---
+
+### 🔍 Problem Summary
+
+Given an array `nums`, where each element represents your max jump from that position, determine if you can reach the last index starting from the first.
+
+---
+
+### 💡 Approach
+
+- Used **recursive DFS** with **memoization** to avoid recomputing paths.
+- For each index, try every jump from 1 to `nums[i]` and check if you can eventually reach the end.
+
+---
+
+### 👨‍💻 Code
+
+```cpp
+class Solution {
+    bool helper(vector<int>& nums, vector<int>& t, int n, int idx) {
+        if (idx == n - 1)
+            return true;
+        if (idx >= n)
+            return false;
+        if (t[idx] != -1) {
+            return t[idx];
+        }
+        for (int i = 1; i <= nums[idx]; i++) {
+            if (helper(nums, t, n, idx + i))
+                return t[idx] = true;
+        }
+        return t[idx] = false;
+    }
+
+public:
+    bool canJump(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> t(n, -1);
+        return helper(nums, t, n, 0);
+    }
+};
