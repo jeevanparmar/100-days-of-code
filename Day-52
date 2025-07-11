@@ -1,0 +1,66 @@
+## 📅 Day 52 - July 10, 2025
+
+**Problems Solved:**  
+- [111. Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)  
+- [222. Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)
+
+---
+
+### 🔹 111. Minimum Depth of Binary Tree
+
+**Approach:**  
+- Used recursion to find the minimum depth of the binary tree.
+- Handled edge cases where one subtree is `null`.
+
+**Code:**
+```cpp
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        if (!root)
+            return 0;
+
+        int lh = minDepth(root->left);
+        int rh = minDepth(root->right);
+
+        if (!lh)
+            return 1 + rh;
+        if (!rh)
+            return 1 + lh;
+            
+        return 1 + min(lh, rh);
+    }
+};
+
+
+🔸 222. Count Complete Tree Nodes
+Approach:
+
+Recursive traversal of left and right subtrees.
+
+Maintained a counter (num) passed by reference to track node count.
+
+code : 
+class Solution {
+public:
+    int helper(TreeNode* root, int& num) {
+        if (!root)
+            return 0;
+
+        if (root->left) {
+            num++;
+            helper(root->left, num);
+        }
+        if (root->right) {
+            num++;
+            helper(root->right, num);
+        }
+        return num;
+    }
+
+    int countNodes(TreeNode* root) {
+        if (!root) return 0;
+        int num = 1;
+        return helper(root, num);
+    }
+};
