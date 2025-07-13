@@ -1,0 +1,60 @@
+# Day 54 – 13 July 2025
+
+Today I solved two LeetCode problems in C++:
+
+---
+
+## 925. Long Pressed Name
+
+```cpp
+class Solution {
+public:
+    bool isLongPressedName(string name, string typed) {
+        int n = name.size();
+        int m = typed.size();
+        int i = 0, j = 0;
+        char prev = name[0];
+        while (i < n && j < m) {
+            if (name[i] == typed[j]) {
+                prev = name[i];
+                i++;
+                j++;
+            } else if (prev == typed[j]) {
+                j++;
+            } else {
+                return false;
+            }
+        }
+        while (j < m) {
+            if (prev == typed[j]) {
+                j++;
+            } else
+                return false;
+        }
+        return i == n;
+    }
+};
+
+2410. Maximum Matching of Players With Trainers
+class Solution {
+public:
+    int matchPlayersAndTrainers(vector<int>& players, vector<int>& trainers) {
+        int n = players.size();
+        int m = trainers.size();
+        int i = 0, j = 0, ans = 0;
+        sort(players.begin(), players.end());
+        sort(trainers.begin(), trainers.end());
+        while (i < n && j < m) {
+            if (players[i] <= trainers[j]) {
+                i++;
+                j++;
+                ans++;
+            } else if (players[i] > trainers[j]) {
+                j++;
+            } else {
+                i++;
+            }
+        }
+        return ans;
+    }
+};
