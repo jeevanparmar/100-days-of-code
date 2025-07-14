@@ -1,0 +1,76 @@
+# Day 55 – 14 July 2025
+
+Today I solved two LeetCode problems in C++:
+
+---
+
+## 34. Find First and Last Position of Element in Sorted Array
+
+```cpp
+class Solution {
+public:
+    void helper(vector<int>& nums, vector<int>& ans, int target) {
+        int l = 0;
+        int h = nums.size() - 1;
+        while (l <= h) {
+            int mid = (l + h) / 2;
+            if (nums[mid] == target) {
+                int start = mid;
+                int end = mid;
+
+                while (start >= 0 && nums[start] == target) start--;
+                while (end < nums.size() && nums[end] == target) end++;
+
+                ans[0] = start + 1;
+                ans[1] = end - 1;
+                return;
+            } else if (nums[mid] > target) {
+                h = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+    }
+
+    vector<int> searchRange(vector<int>& nums, int target) {
+        vector<int> ans(2, -1);
+        if (nums.size() == 1) {
+            if (nums[0] == target) {
+                ans[0] = 0;
+                ans[1] = 0;
+            }
+            return ans;
+        }
+        helper(nums, ans, target);
+        return ans;
+    }
+};
+```
+
+---
+
+## 278. First Bad Version
+
+```cpp
+// The API isBadVersion is defined for you.
+// bool isBadVersion(int version);
+
+class Solution {
+public:
+    int firstBadVersion(int n) {
+        int l = 1, h = n;
+        while (l < h) {
+            int mid = l + (h - l) / 2;
+            if (isBadVersion(mid)) {
+                h = mid; 
+            } else {
+                l = mid + 1; 
+            }
+        }
+        return l;
+    }
+};
+```
+
+---
+
