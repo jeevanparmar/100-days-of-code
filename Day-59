@@ -1,0 +1,63 @@
+# Day 59 – 18 July 2025
+
+Today I solved two classic string-based LeetCode problems involving **Roman numeral conversions**. These problems are great for understanding mappings, condition-based addition/subtraction, and greedy algorithms.
+
+---
+
+## ✅ 13. Roman to Integer
+
+### 🔗 Problem Link: [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
+
+### 🔸 Code:
+
+```cpp
+class Solution {
+public:
+    int romanToInt(string s) {
+        unordered_map<char, int> romanMap = {
+            {'I', 1}, {'V', 5}, {'X', 10},
+            {'L', 50}, {'C', 100}, {'D', 500}, {'M', 1000}
+        };
+
+        int total = 0;
+        int prevValue = 0;
+
+        // Traverse the string from right to left
+        for (int i = s.length() - 1; i >= 0; --i) {
+            int currValue = romanMap[s[i]];
+            if (currValue < prevValue) {
+                total -= currValue;
+            } else {
+                total += currValue;
+            }
+            prevValue = currValue;
+        }
+
+        return total;
+    }
+};
+
+✅ 12. Integer to Roman
+🔗 Problem Link: 12. Integer to Roman
+
+class Solution {
+public:
+    string intToRoman(int num) {
+        vector<pair<int, string>> valueMap = {
+            {1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
+            {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
+            {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}
+        };
+
+        string result;
+
+        for (const auto& [value, symbol] : valueMap) {
+            while (num >= value) {
+                result += symbol;
+                num -= value;
+            }
+        }
+
+        return result;
+    }
+};
