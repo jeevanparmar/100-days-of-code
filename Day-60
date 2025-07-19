@@ -1,0 +1,40 @@
+# Day 60 – 19 July 2025
+
+Today I solved 1 problems on LeetCode. 🚀
+
+---
+
+## ✅ 257. Binary Tree Paths
+
+### 🔗 Problem Link: [257. Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/)
+
+### 🔸 Code:
+
+```cpp
+class Solution {
+private:
+    void helper(TreeNode* root, vector<string>& ans, string curr) {
+        if (!root) return;
+
+        if (curr.empty()) {
+            curr += to_string(root->val);
+        } else {
+            curr += "->" + to_string(root->val);
+        }
+
+        if (!root->left && !root->right) {
+            ans.push_back(curr);
+            return;
+        }
+
+        helper(root->left, ans, curr);
+        helper(root->right, ans, curr);
+    }
+
+public:
+    vector<string> binaryTreePaths(TreeNode* root) {
+        vector<string> ans;
+        helper(root, ans, "");
+        return ans;
+    }
+};
