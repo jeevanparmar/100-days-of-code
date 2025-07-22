@@ -1,0 +1,25 @@
+### Day 63 - July 23, 2025
+
+**Leetcode Problem:** 1128. Number of Equivalent Domino Pairs  
+**Difficulty:** Easy  
+**Problem Link:** [Number of Equivalent Domino Pairs](https://leetcode.com/problems/number-of-equivalent-domino-pairs/)
+
+#### Approach:
+- Normalize each domino pair so the smaller number comes first.
+- Use a map to count how many times each normalized pair appears.
+- For each pair, add the number of previous occurrences to the result (since each one forms a valid pair).
+
+#### Code:
+```cpp
+class Solution {
+public:
+    int numEquivDominoPairs(vector<vector<int>>& dominoes) {
+        map<pair<int, int>, int> mpp;
+        int count = 0;
+        for(auto& d : dominoes){
+            if(d[0] > d[1]) swap(d[0], d[1]);
+            count += mpp[make_pair(d[0], d[1])]++;
+        }
+        return count;
+    }
+};
