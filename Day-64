@@ -1,0 +1,23 @@
+# Day 64 – 24 July 2025
+
+Today I solved one LeetCode problem in C++.
+
+---
+
+## ✅ 169. Majority Element
+
+### Problem
+Find the element that appears more than ⌊n / 2⌋ times in an array of size n.
+
+### Approach
+Sorted the array and returned the middle element, which is guaranteed to be the majority element.
+
+### Code
+```cpp
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        return nums[nums.size() / 2];
+    }
+};
