@@ -1,0 +1,42 @@
+# Day 66 – 25 July 2025
+
+Today I solved one LeetCode problem in C++.
+
+---
+
+## ✅ 3487. Maximum Unique Subarray Sum After Deletion
+
+### Problem
+Given an array, return the maximum possible sum from a unique subset of numbers (no duplicates, no non-positive values). If all are negative, return the max number.
+
+### Approach
+- Used a hashmap to skip duplicates and negatives.
+- Kept a running total of unique positive numbers.
+- Tracked the maximum number in case all values were negative.
+
+### Code
+```cpp
+class Solution {
+public:
+    int maxSum(vector<int>& nums) {
+        unordered_map<int, int> mp;
+        int ans = 0;
+        int maxnum = INT_MIN;
+        for (int i = 0; i < nums.size(); i++) {
+            maxnum = max(maxnum, nums[i]);
+
+            if (mp.find(nums[i]) != mp.end() || 0 >= nums[i]) {
+                continue;
+            } else {
+                ans += nums[i];
+                mp[nums[i]]++;
+            }
+        }
+        if (ans == 0) {
+            // jab sare nagetive number hi ho then return maxnum of that
+            return maxnum;
+        }
+        return ans;
+    }
+};
+```
