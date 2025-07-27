@@ -1,0 +1,38 @@
+# Day 68 – 25 July 2025
+
+Today I solved **3 LeetCode problems** in C++ and Python, focusing on number-based logic and string manipulation.
+
+---
+
+## 🔹 231. Power of Two
+
+**Language:** C++
+
+```cpp
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        return n > 0 && not (n & n - 1);
+    }
+};
+
+🔹 326. Power of Three
+Language: C++
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        if (n <= 0) return false;
+        while (n % 3 == 0) {
+            n /= 3;
+        }
+        return n == 1;
+    }
+};
+🔹 415. Add Strings
+Language: Python
+class Solution(object):
+    def addStrings(self, num1, num2):
+        num1 = int(num1)
+        num2 = int(num2)
+        return str(num1 + num2)
+
