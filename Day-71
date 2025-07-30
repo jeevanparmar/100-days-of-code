@@ -1,0 +1,32 @@
+# Day 71 – 25 July 2025
+
+Today I solved **1 LeetCode problem** in C++ as part of my #100DaysOfCode challenge.
+
+---
+
+### 414. Third Maximum Number
+
+```cpp
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+        long first = LONG_MIN, second = LONG_MIN, third = LONG_MIN;
+
+        for (int num : nums) {
+            if (num == first || num == second || num == third) continue;
+
+            if (num > first) {
+                third = second;
+                second = first;
+                first = num;
+            } else if (num > second) {
+                third = second;
+                second = num;
+            } else if (num > third) {
+                third = num;
+            }
+        }
+
+        return (third == LONG_MIN) ? first : third;
+    }
+};
