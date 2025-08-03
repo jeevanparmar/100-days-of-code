@@ -1,0 +1,22 @@
+# Day 75 – 29 July 2025
+
+Today I solved **1 LeetCode problem** in C++.
+
+---
+
+### 9. Palindrome Number
+
+```cpp
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        int i = x;
+        long int ans = 0;
+        while (x > 0) {
+            ans = ans * 10;
+            ans += x % 10;
+            x = x / 10;
+        }
+        return i == ans;
+    }
+};
